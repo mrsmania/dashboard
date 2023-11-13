@@ -1,6 +1,8 @@
 :root {
     --main-color: #0060ad;
     --second-color: #ffc200;
+    --bg-color: #e2e8f0;
+    --txt-color: #666;
 
     --fz-biggest: clamp(1.6rem, 2.0vw, 2.5rem);
     --fz-big: clamp(1.1rem, 1.4vw, 1.7rem);
@@ -142,7 +144,7 @@ h5 {
 }
 
 .searchbar input {
-    background-color: #e8ecf4;
+    background-color: var(--bg-color);
     width: 100%;
     height: 50px;
     border-radius: 50px;
@@ -247,7 +249,7 @@ svg:hover {
     grid-area: content;
     grid-row: 2/3;
     grid-column: 2/3;
-    background-color: #e2e8f0;
+    background-color: var(--bg-color);
     box-shadow: inset 0 7px 13px -7px rgba(0, 0, 0, 0.2);
 
     display: grid;
@@ -291,7 +293,7 @@ svg:hover {
 
 .card-text {
     align-self: self-start;
-    color: #666;
+    color: var(--txt-color);
 }
 
 .card-text span::after {
@@ -304,7 +306,7 @@ svg:hover {
 }
 
 .card a {
-    color: #666;
+    color: var(--txt-color);
 }
 
 .card a:hover {
@@ -341,7 +343,7 @@ svg:hover {
 
 .announcement {
     margin-bottom: 30px;
-    border-bottom: 2px solid #dfdfdf;
+    border-bottom: 2px solid var(--bg-color);
 }
 
 .announcement:last-of-type {
@@ -360,7 +362,7 @@ svg:hover {
 .announcement-text {
     padding: 5px 0 30px;
     align-self: self-start;
-    color: #666;
+    color: var(--txt-color);
 }
 
 .trending {
@@ -418,7 +420,7 @@ svg:hover {
 }
 
 .trending-claim {
-    color: #666;
+    color: var(--txt-color);
 }
 
 .footer {
