@@ -1,3 +1,13 @@
+:root {
+    --main-color: #0060ad;
+    --second-color: #ffc200;
+
+    --fz-biggest: clamp(1.6rem, 2.0vw, 2.5rem);
+    --fz-big: clamp(1.1rem, 1.4vw, 1.7rem);
+    --fz-med: clamp(1.1rem, 1.25vw, 1.4rem);
+    --fz-small: clamp(1.0rem, 1.15vw, 1.2rem);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,30 +27,30 @@ body {
 
 h1 {
     font-weight: bold;
-    font-size: clamp(1.8rem, 2.5vw, 3rem);
+    font-size: var(--fz-biggest);
 }
 
 h3 {
     font-weight: bold;
-    font-size: clamp(1.1rem, 1.4vw, 1.7rem);
+    font-size: var(--fz-big);
 }
 
 h4 {
     font-weight: bold;
-    font-size: clamp(1.0rem, 1.2vw, 1.5rem);
-    color: #0060AD;
+    font-size: var(--fz-small);
+    color: var(--main-color);
 }
 
 h5 {
     font-weight: bold;
-    font-size: clamp(1.0rem, 1.1vw, 1.4rem);
-    color: #0060AD;
+    font-size: var(--fz-small);
+    color: var(--main-color);
 }
 
 .container {
     display: grid;
     grid-template-rows: auto 1fr;
-    grid-template-columns: minmax(350px, 1fr) 4fr;
+    grid-template-columns: minmax(300px, 1fr) 4fr;
     grid-template-areas:
         "sidebar header"
         "sidebar content";
@@ -48,7 +58,7 @@ h5 {
 }
 
 .sidebar {
-    background-color: #0060AD;
+    background-color: var(--main-color);
     color: white;
     padding: 30px 40px;
 
@@ -98,14 +108,14 @@ h5 {
 
 .nav-element a {
     font-weight: bold;
-    font-size: clamp(1.4rem, 1.7vw, 2rem);
+    font-size: var(--fz-big);
 
     display: flex;
     align-items: center;
 }
 
 .nav-element img {
-    height: clamp(1.4rem, 1.7vw, 2rem);
+    height: var(--fz-big);
     filter: invert(100%);
     margin-right: 20px;
 }
@@ -137,7 +147,7 @@ h5 {
     height: 50px;
     border-radius: 50px;
     margin-right: 50px;
-    font-size: clamp(1rem, 1.15vw, 1.3rem);
+    font-size: var(--fz-small);
     padding: 0 20px;
 }
 
@@ -157,6 +167,12 @@ h5 {
 
 .user-navi .notifications-img img {
     height: 35px;
+    border-radius: 50%;
+    fill: black;
+}
+
+.user-navi a .notifications-img img:hover {
+    fill: var(--second-color);
 }
 
 .user-navi .user-img img {
@@ -164,8 +180,16 @@ h5 {
     margin: 0 40px;
 }
 
+svg {
+    fill: black;
+}
+
+svg:hover {
+    fill: rgba(255, 194, 0, 0.65);
+}
+
 .user-name {
-    font-size: clamp(1.1rem, 1.35vw, 1.6rem);
+    font-size: var(--fz-small);
     font-weight: bold;
 }
 
@@ -183,13 +207,13 @@ h5 {
 }
 
 .greeting {
-    font-size: clamp(1.1rem, 1.35vw, 1.6rem);
+    font-size: var(--fz-small);
     font-weight: bold;
 
 }
 
 .user-name-big {
-    font-size: clamp(1.4rem, 1.8vw, 2.2rem);
+    font-size: var(--fz-big);
     font-weight: bold;
 }
 
@@ -203,22 +227,23 @@ h5 {
 }
 
 .buttons button {
-    background-color: #0060AD;
+    background-color: var(--main-color);
     margin: 0 10px;
     padding: 10px 30px;
     border-radius: 50px;
     color: white;
-    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    font-size: var(--fz-small);
     font-weight: bold;
     cursor: pointer;
 }
 
 .buttons button:hover {
-    background-color: #302f2f;
+    background-color: rgba(255, 194, 0, 0.65);
+    color: black;
 }
 
 .content {
-    padding: 60px 30px;
+    padding: 60px 30px 5px;
     grid-area: content;
     grid-row: 2/3;
     grid-column: 2/3;
@@ -227,10 +252,11 @@ h5 {
 
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr 40px;
     grid-template-areas:
         "projects announcements"
-        "projects trending";
+        "projects trending"
+        "footer footer";
     gap: 30px;
 }
 
@@ -251,7 +277,7 @@ h5 {
     background-color: white;
     border-radius: 13px;
     padding: 40px 30px;
-    border-left: 13px solid #0060AD;
+    border-left: 13px solid var(--main-color);
     box-shadow: 10px 10px 15px -10px rgba(0, 0, 0, 0.2);
 
     display: grid;
@@ -259,7 +285,7 @@ h5 {
 }
 
 .card div:first-of-type {
-    font-size: clamp(1.1rem, 1.25vw, 1.4rem);
+    font-size: var(--fz-small);
     margin: 5px 0 30px;
 }
 
@@ -286,13 +312,19 @@ h5 {
 }
 
 .card a h4:hover {
-    color: #0060AD;
+    color: var(--main-color);
     text-decoration: underline;
 }
 
 .card-icons img {
-    height: 30px;
+    height: 34px;
     margin: 0 15px;
+    padding: 0.25rem;
+    border-radius: 50%;
+}
+
+.card-icons img:hover {
+    background-color: rgba(255, 194, 0, 0.65);
 }
 
 .announcements {
@@ -318,7 +350,7 @@ h5 {
 }
 
 .announcement div:first-of-type {
-    font-size: clamp(1rem, 1.15vw, 1.2rem);
+    font-size: var(--fz-small);
 }
 
 .announcement-content {
@@ -345,6 +377,10 @@ h5 {
 
 .trending-wrapper a {
     color: black;
+}
+
+.trending-wrapper a:hover {
+    text-decoration: underline;
 }
 
 .trending-content {
@@ -378,9 +414,20 @@ h5 {
 
 .trending-user,
 .trending-claim {
-    font-size: clamp(1.1rem, 1.25vw, 1.4rem);
+    font-size: var(--fz-small);
 }
 
 .trending-claim {
     color: #666;
+}
+
+.footer {
+    grid-area: footer;
+    align-self: center;
+    justify-self: center;
+}
+
+.footer img {
+    height: 20px;
+    vertical-align: middle;
 }
