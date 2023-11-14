@@ -167,7 +167,7 @@ h3 {
     border-radius: 50%;
 }
 
-.user-navi img:hover {
+.user-navi a img:hover {
     background-color: var(--hover-color);
 }
 
