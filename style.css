@@ -39,34 +39,30 @@ h1 {
     font-size: var(--fz-biggest);
 }
 
-h3 {
+h2 {
     font-size: var(--fz-big);
 }
 
-h4 {
-    font-size: var(--fz-small);
-    color: var(--main-color);
-}
-
-h5 {
+h3 {
     font-size: var(--fz-small);
     color: var(--main-color);
 }
 
 .container {
+    min-height: 100vh;
+
     display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: minmax(300px, 1fr) 4fr;
     grid-template-areas:
         "sidebar header"
         "sidebar content";
-    min-height: 100vh;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: minmax(300px, 1fr) 4fr;
 }
 
 .sidebar {
+    padding: 30px 40px;
     background-color: var(--main-color);
     color: var(--txt-color-bright);
-    padding: 30px 40px;
 
     grid-area: sidebar;
     grid-row: 1/3;
@@ -94,32 +90,24 @@ h5 {
 }
 
 .sidebar .logo {
-    gap: 0.5rem;
-}
-
-.logo {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
-.logo img {
+.sidebar .logo img,
+.nav-element img {
     margin-right: 20px;
-    height: 2rem;
+    height: var(--fz-big);
     filter: invert(100%);
 }
 
 .nav-element a {
-    font-weight: bold;
     font-size: var(--fz-big);
+    font-weight: bold;
 
     display: flex;
     align-items: center;
-}
-
-.nav-element img {
-    height: var(--fz-big);
-    filter: invert(100%);
-    margin-right: 20px;
 }
 
 .header {
@@ -144,18 +132,18 @@ h5 {
 }
 
 .searchbar input {
-    background-color: var(--bg-color);
-    width: 100%;
-    height: 50px;
-    border-radius: 50px;
     margin-right: 50px;
-    font-size: var(--fz-small);
     padding: 0 20px;
+    height: 50px;
+    width: 100%;
+    font-size: var(--fz-small);
+    background-color: var(--bg-color);
+    border-radius: 50px;
 }
 
 .searchbar img {
-    height: 35px;
     margin-right: 20px;
+    height: 35px;
 }
 
 .user-navi {
@@ -168,27 +156,19 @@ h5 {
     gap: 35px;
 }
 
-.user-navi .notifications-img img {
-    height: 35px;
-    border-radius: 50%;
-    fill: var(--txt-color-darker);
-}
-
-.user-navi a .notifications-img img:hover {
-    fill: var(--second-color);
-}
-
 .user-navi .user-img img,
 .trending img {
     height: 65px;
 }
 
-svg {
-    fill: var(--txt-color-darker);
+.user-navi img {
+    padding: 4px;
+    height: 34px;
+    border-radius: 50%;
 }
 
-svg:hover {
-    fill: var(--hover-color);
+.user-navi img:hover {
+    background-color: var(--hover-color);
 }
 
 .user-name {
@@ -205,8 +185,8 @@ svg:hover {
 }
 
 .user-welcome .user-img-big img {
-    height: 100px;
     margin-right: 30px;
+    height: 100px;
 }
 
 .greeting {
@@ -230,13 +210,13 @@ svg:hover {
 }
 
 .buttons button {
-    background-color: var(--main-color);
     margin: 0 10px;
     padding: 10px 30px;
-    border-radius: 50px;
-    color: var(--txt-color-bright);
     font-size: var(--fz-small);
     font-weight: bold;
+    background-color: var(--main-color);
+    color: var(--txt-color-bright);
+    border-radius: 50px;
     cursor: pointer;
 }
 
@@ -247,19 +227,20 @@ svg:hover {
 
 .content {
     padding: 60px 30px 5px;
-    grid-area: content;
-    grid-row: 2/3;
-    grid-column: 2/3;
     background-color: var(--bg-color);
     box-shadow: inset 0 7px 13px -7px var(--bs-color);
 
+    grid-area: content;
+    grid-row: 2/3;
+    grid-column: 2/3;
+
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: auto 1fr 40px;
     grid-template-areas:
         "projects announcements"
         "projects trending"
         "footer footer";
+    grid-template-rows: auto 1fr 40px;
+    grid-template-columns: 3fr 1fr;
     gap: 30px;
 }
 
@@ -277,9 +258,9 @@ svg:hover {
 
 .card {
     margin-top: 20px;
+    padding: 40px 30px;
     background-color: var(--txt-color-bright);
     border-radius: 13px;
-    padding: 40px 30px;
     border-left: 13px solid var(--main-color);
     box-shadow: 10px 10px 15px -10px var(--bs-color);
 
@@ -309,9 +290,9 @@ svg:hover {
 }
 
 .card-icons img {
-    height: 34px;
     margin: 0 15px;
-    padding: 0.25rem;
+    padding: 4px;
+    height: 34px;
     border-radius: 50%;
 }
 
@@ -325,9 +306,9 @@ svg:hover {
 
 .announcement-wrapper {
     margin-top: 20px;
+    padding: 40px 35px 20px;
     background-color: var(--txt-color-bright);
     border-radius: 13px;
-    padding: 40px 35px 20px;
     box-shadow: 10px 10px 15px -10px var(--bs-color);
 }
 
@@ -351,8 +332,9 @@ svg:hover {
 
 .announcement-text {
     padding: 5px 0 30px;
-    align-self: self-start;
     color: var(--txt-color-dark);
+
+    align-self: self-start;
 }
 
 .trending {
@@ -361,9 +343,9 @@ svg:hover {
 
 .trending-wrapper {
     margin-top: 20px;
+    padding: 20px 35px 20px;
     background-color: var(--txt-color-bright);
     border-radius: 13px;
-    padding: 20px 35px 20px;
     box-shadow: 10px 10px 15px -10px var(--bs-color);
 }
 
@@ -372,13 +354,14 @@ svg:hover {
 }
 
 .trending-content {
+    margin: 30px 0;
+
     display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr 1fr;
     grid-template-areas:
         "avatar user"
         "avatar claim";
-    margin: 30px 0;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     gap: 5px 20px;
 }
 
