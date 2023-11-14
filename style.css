@@ -349,7 +349,8 @@ h3 {
     box-shadow: 10px 10px 15px -10px var(--bs-color);
 }
 
-.trending-wrapper a {
+.trending-wrapper a,
+.footer a {
     color: var(--txt-color-darker);
 }
 
