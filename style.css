@@ -2,7 +2,11 @@
     --main-color: #0060ad;
     --second-color: #ffc200;
     --bg-color: #e2e8f0;
-    --txt-color: #666;
+    --txt-color-bright: #fff;
+    --txt-color-dark: #666;
+    --txt-color-darker: #000;
+    --bs-color: rgba(0, 0, 0, 0.2);
+    --hover-color: rgba(255, 194, 0, 0.65);
 
     --fz-biggest: clamp(1.6rem, 2.0vw, 2.5rem);
     --fz-big: clamp(1.1rem, 1.4vw, 1.7rem);
@@ -19,8 +23,12 @@
 
 a {
     text-decoration: none;
-    color: black;
 }
+
+a:hover {
+    text-decoration: underline;
+}
+
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -28,23 +36,19 @@ body {
 }
 
 h1 {
-    font-weight: bold;
     font-size: var(--fz-biggest);
 }
 
 h3 {
-    font-weight: bold;
     font-size: var(--fz-big);
 }
 
 h4 {
-    font-weight: bold;
     font-size: var(--fz-small);
     color: var(--main-color);
 }
 
 h5 {
-    font-weight: bold;
     font-size: var(--fz-small);
     color: var(--main-color);
 }
@@ -61,7 +65,7 @@ h5 {
 
 .sidebar {
     background-color: var(--main-color);
-    color: white;
+    color: var(--txt-color-bright);
     padding: 30px 40px;
 
     grid-area: sidebar;
@@ -74,11 +78,7 @@ h5 {
 }
 
 .sidebar a {
-    color: white;
-}
-
-.sidebar a:hover {
-    text-decoration: underline;
+    color: var(--txt-color-bright);
 }
 
 .sidebar .navi-links ul,
@@ -165,29 +165,30 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 35px;
 }
 
 .user-navi .notifications-img img {
     height: 35px;
     border-radius: 50%;
-    fill: black;
+    fill: var(--txt-color-darker);
 }
 
 .user-navi a .notifications-img img:hover {
     fill: var(--second-color);
 }
 
-.user-navi .user-img img {
+.user-navi .user-img img,
+.trending img {
     height: 65px;
-    margin: 0 40px;
 }
 
 svg {
-    fill: black;
+    fill: var(--txt-color-darker);
 }
 
 svg:hover {
-    fill: rgba(255, 194, 0, 0.65);
+    fill: var(--hover-color);
 }
 
 .user-name {
@@ -233,15 +234,15 @@ svg:hover {
     margin: 0 10px;
     padding: 10px 30px;
     border-radius: 50px;
-    color: white;
+    color: var(--txt-color-bright);
     font-size: var(--fz-small);
     font-weight: bold;
     cursor: pointer;
 }
 
 .buttons button:hover {
-    background-color: rgba(255, 194, 0, 0.65);
-    color: black;
+    background-color: var(--hover-color);
+    color: var(--txt-color-darker);
 }
 
 .content {
@@ -250,7 +251,7 @@ svg:hover {
     grid-row: 2/3;
     grid-column: 2/3;
     background-color: var(--bg-color);
-    box-shadow: inset 0 7px 13px -7px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 7px 13px -7px var(--bs-color);
 
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -276,24 +277,22 @@ svg:hover {
 
 .card {
     margin-top: 20px;
-    background-color: white;
+    background-color: var(--txt-color-bright);
     border-radius: 13px;
     padding: 40px 30px;
     border-left: 13px solid var(--main-color);
-    box-shadow: 10px 10px 15px -10px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 15px -10px var(--bs-color);
 
     display: grid;
     grid-template-rows: auto auto 1fr;
 }
 
-.card div:first-of-type {
-    font-size: var(--fz-small);
-    margin: 5px 0 30px;
-}
-
 .card-text {
+    margin: 10px 0 5px;
+    font-size: var(--fz-small);
+    color: var(--txt-color-dark);
+
     align-self: self-start;
-    color: var(--txt-color);
 }
 
 .card-text span::after {
@@ -306,16 +305,7 @@ svg:hover {
 }
 
 .card a {
-    color: var(--txt-color);
-}
-
-.card a:hover {
-    text-decoration: underline;
-}
-
-.card a h4:hover {
-    color: var(--main-color);
-    text-decoration: underline;
+    color: var(--txt-color-dark);
 }
 
 .card-icons img {
@@ -326,7 +316,7 @@ svg:hover {
 }
 
 .card-icons img:hover {
-    background-color: rgba(255, 194, 0, 0.65);
+    background-color: var(--hover-color);
 }
 
 .announcements {
@@ -335,10 +325,10 @@ svg:hover {
 
 .announcement-wrapper {
     margin-top: 20px;
-    background-color: white;
+    background-color: var(--txt-color-bright);
     border-radius: 13px;
     padding: 40px 35px 20px;
-    box-shadow: 10px 10px 15px -10px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 15px -10px var(--bs-color);
 }
 
 .announcement {
@@ -362,7 +352,7 @@ svg:hover {
 .announcement-text {
     padding: 5px 0 30px;
     align-self: self-start;
-    color: var(--txt-color);
+    color: var(--txt-color-dark);
 }
 
 .trending {
@@ -371,18 +361,14 @@ svg:hover {
 
 .trending-wrapper {
     margin-top: 20px;
-    background-color: white;
+    background-color: var(--txt-color-bright);
     border-radius: 13px;
     padding: 20px 35px 20px;
-    box-shadow: 10px 10px 15px -10px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 15px -10px var(--bs-color);
 }
 
 .trending-wrapper a {
-    color: black;
-}
-
-.trending-wrapper a:hover {
-    text-decoration: underline;
+    color: var(--txt-color-darker);
 }
 
 .trending-content {
@@ -410,17 +396,13 @@ svg:hover {
     grid-area: claim;
 }
 
-.trending img {
-    height: 65px;
-}
-
 .trending-user,
 .trending-claim {
     font-size: var(--fz-small);
 }
 
 .trending-claim {
-    color: var(--txt-color);
+    color: var(--txt-color-dark);
 }
 
 .footer {
